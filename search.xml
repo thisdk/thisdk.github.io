@@ -43,7 +43,13 @@
     <title>Linux 命令记录</title>
     <url>/2022/10/08/notes-221008-linux-command.html</url>
     <content><![CDATA[<h3 id="全盘查找文件"><a href="#全盘查找文件" class="headerlink" title="全盘查找文件"></a>全盘查找文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find / -name &quot;*.log&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
+
+<h3 id="进入Docker容器内部执行命令"><a href="#进入Docker容器内部执行命令" class="headerlink" title="进入Docker容器内部执行命令"></a>进入Docker容器内部执行命令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it tomcat bash</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Ubuntu-清除多余配置文件"><a href="#Ubuntu-清除多余配置文件" class="headerlink" title="Ubuntu 清除多余配置文件"></a>Ubuntu 清除多余配置文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dpkg -l |grep ^rc|awk &#x27;&#123;print $2&#125;&#x27; |xargs dpkg -P</span><br></pre></td></tr></table></figure>
+
+<h3 id="Swap-交换分区创建设置"><a href="#Swap-交换分区创建设置" class="headerlink" title="Swap 交换分区创建设置"></a>Swap 交换分区创建设置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 创建一个1G大小名为swap的文件</span><br><span class="line">fallocate -l 1G swap</span><br><span class="line"></span><br><span class="line"># 设置swap文件为swap分区</span><br><span class="line">mkswap -f swap</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>笔记</category>
       </categories>
