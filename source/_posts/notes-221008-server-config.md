@@ -1,8 +1,8 @@
 ---
-title: 服务器Docker容器配置笔记
-tags: 笔记
+title: 服务器Docker容器配置
+tags: Linux
 categories: 笔记
-date: 2022-10-01 13:24:00
+date: 2022-10-08 13:24:00
 ---
 
 ### Docker 接口创建与卷创建

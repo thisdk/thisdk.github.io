@@ -1,6 +1,6 @@
 ---
 title: Android 开发环境
-tags: 默认
+tags: Android
 categories: 默认
 date: 2022-10-01 12:00:00
 ---
