@@ -35,7 +35,7 @@ CLASSPATH=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
 
 配置好Android SDK的位置.
 
->配置GRADLE_USER_HOME的原因是因为我想控制gradle的缓存位置
+> 配置GRADLE_USER_HOME的原因是因为我想控制gradle的缓存位置
 
 ``` properties
 Android_SDK_HOME=D:\Android\Home
@@ -46,7 +46,7 @@ GRADLE_USER_HOME=D:\Android\Gradle
 
 ### Flutter环境变量
 
-若顺便进行Flutter
+若要配置Flutter
 
 ``` properties
 FLUTTER_HOME=D:\Android\Flutter
@@ -68,7 +68,7 @@ PUB_HOSTED_URL=https://pub.flutter-io.cn
 
 ### Gradle 下载代理
 
->D:\Android\Gradle\gradle.properties
+> D:\Android\Gradle\gradle.properties
 
 ``` properties
 systemProp.http.proxyHost=127.0.0.1
