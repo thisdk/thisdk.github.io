@@ -21,25 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"thisdk.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Hello World">
-<meta property="og:type" content="website">
-<meta property="og:title" content="J.Y&#39;s BLOG">
-<meta property="og:url" content="https://thisdk.github.io/index.html">
+    <meta name="description" content="Gradle配置文件 在 build.gradle 中添加  1apply from: &amp;#x27;maven-publish.gradle&amp;#x27;   创建配置文件 gradle.properties  1234567891011121314151617181920GROUP&#x3D;io.github.thisdkARTIFACT_ID&#x3D;coreVERSION_NAME&#x3D;0.0.2-SNAPSHO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android发布aar到MavenCenter配置文件">
+<meta property="og:url" content="https://thisdk.github.io/2022/10/08/notes-221008-android-library-push-maven-center.html">
 <meta property="og:site_name" content="J.Y&#39;s BLOG">
-<meta property="og:description" content="Hello World">
+<meta property="og:description" content="Gradle配置文件 在 build.gradle 中添加  1apply from: &amp;#x27;maven-publish.gradle&amp;#x27;   创建配置文件 gradle.properties  1234567891011121314151617181920GROUP&#x3D;io.github.thisdkARTIFACT_ID&#x3D;coreVERSION_NAME&#x3D;0.0.2-SNAPSHO">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-08T07:37:00.000Z">
+<meta property="article:modified_time" content="2022-10-08T07:55:06.209Z">
 <meta property="article:author" content="thisdk">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://thisdk.github.io/">
+<link rel="canonical" href="https://thisdk.github.io/2022/10/08/notes-221008-android-library-push-maven-center.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://thisdk.github.io/2022/10/08/notes-221008-android-library-push-maven-center.html","path":"2022/10/08/notes-221008-android-library-push-maven-center.html","title":"Android发布aar到MavenCenter配置文件"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>J.Y's BLOG</title>
+<title>Android发布aar到MavenCenter配置文件 | J.Y's BLOG</title>
   
 
 
@@ -70,7 +73,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">J.Y's BLOG</h1>
+      <p class="site-title">J.Y's BLOG</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -129,7 +132,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -142,6 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradle%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">Gradle配置文件</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -203,16 +207,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://thisdk.github.io/2022/10/08/notes-221008-android-library-push-maven-center.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,13 +231,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | J.Y's BLOG">
+      <meta itemprop="name" content="Android发布aar到MavenCenter配置文件 | J.Y's BLOG">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/08/notes-221008-android-library-push-maven-center.html" class="post-title-link" itemprop="url">Android发布aar到MavenCenter配置文件</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Android发布aar到MavenCenter配置文件
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -280,7 +285,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="Gradle配置文件"><a href="#Gradle配置文件" class="headerlink" title="Gradle配置文件"></a>Gradle配置文件</h3><blockquote>
+        <h3 id="Gradle配置文件"><a href="#Gradle配置文件" class="headerlink" title="Gradle配置文件"></a>Gradle配置文件</h3><blockquote>
 <p>在 build.gradle 中添加</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply from: &#x27;maven-publish.gradle&#x27;</span><br></pre></td></tr></table></figure>
@@ -294,7 +299,6 @@
 <p>创建文件 maven-publish.gradle</p>
 </blockquote>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">&#x27;maven-publish&#x27;</span></span><br><span class="line">apply plugin: <span class="string">&#x27;signing&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">task</span> androidSourcesJar(type: Jar) &#123;</span><br><span class="line">    archiveClassifier.set(<span class="string">&quot;sources&quot;</span>)</span><br><span class="line">    <span class="keyword">from</span> android.<span class="keyword">sourceSets</span>.main.java.srcDirs</span><br><span class="line">    <span class="keyword">exclude</span> <span class="string">&quot;**/R.class&quot;</span></span><br><span class="line">    <span class="keyword">exclude</span> <span class="string">&quot;**/BuildConfig.class&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">publishing &#123;</span><br><span class="line">    publications &#123;</span><br><span class="line">        maven(MavenPublication) &#123;</span><br><span class="line">            groupId <span class="keyword">GROUP</span></span><br><span class="line">            artifactId ARTIFACT_ID</span><br><span class="line">            version VERSION_NAME</span><br><span class="line">            afterEvaluate &#123; artifact(bundleReleaseAar) &#125;</span><br><span class="line">            artifact androidSourcesJar</span><br><span class="line">            pom &#123;</span><br><span class="line">                name = POM_NAME</span><br><span class="line">                packaging = POM_PACKAGING</span><br><span class="line">                <span class="keyword">description</span> = POM_DESCRIPTION</span><br><span class="line">                url = POM_URL</span><br><span class="line">                licenses &#123;</span><br><span class="line">                    license &#123;</span><br><span class="line">                        name = POM_LICENCE_NAME</span><br><span class="line">                        url = POM_LICENCE_URL</span><br><span class="line">                        distribution = POM_LICENCE_DIST</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                developers &#123;</span><br><span class="line">                    developer &#123;</span><br><span class="line">                        id = POM_DEVELOPER_ID</span><br><span class="line">                        name = POM_DEVELOPER_NAME</span><br><span class="line">                        email = POM_DEVELOPER_EMAIL</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                scm &#123;</span><br><span class="line">                    url = POM_SCM_URL</span><br><span class="line">                    connection = POM_SCM_CONNECTION</span><br><span class="line">                    developerConnection = POM_SCM_DEV_CONNECTION</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            pom.withXml &#123;</span><br><span class="line">                <span class="keyword">def</span> dependenciesNode = asNode().appendNode(<span class="string">&#x27;dependencies&#x27;</span>)</span><br><span class="line">                <span class="keyword">configurations</span>.implementation.allDependencies.<span class="keyword">each</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (it.<span class="keyword">group</span> != <span class="keyword">null</span> &amp;&amp; (it.name != <span class="keyword">null</span> &amp;&amp; <span class="string">&quot;unspecified&quot;</span> != it.name) &amp;&amp; it.version != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">def</span> dependencyNode = dependenciesNode.appendNode(<span class="string">&#x27;dependency&#x27;</span>)</span><br><span class="line">                        dependencyNode.appendNode(<span class="string">&#x27;groupId&#x27;</span>, it.<span class="keyword">group</span>)</span><br><span class="line">                        dependencyNode.appendNode(<span class="string">&#x27;artifactId&#x27;</span>, it.name)</span><br><span class="line">                        dependencyNode.appendNode(<span class="string">&#x27;version&#x27;</span>, it.version)</span><br><span class="line">                        dependencyNode.appendNode(<span class="string">&#x27;scope&#x27;</span>, <span class="string">&#x27;implementation&#x27;</span>)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        maven &#123;</span><br><span class="line">            <span class="keyword">def</span> releasesRepoUrl = <span class="string">&quot;https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/&quot;</span></span><br><span class="line">            <span class="keyword">def</span> snapshotsRepoUrl = <span class="string">&quot;https://s01.oss.sonatype.org/content/repositories/snapshots/&quot;</span></span><br><span class="line">            url = VERSION_NAME.endsWith(<span class="string">&#x27;-SNAPSHOT&#x27;</span>) ? snapshotsRepoUrl : releasesRepoUrl</span><br><span class="line">            credentials &#123;</span><br><span class="line">                username findProperty(<span class="string">&quot;SONATYPE_USERNAME&quot;</span>) ?: System.getenv(<span class="string">&quot;SONATYPE_USERNAME&quot;</span>)</span><br><span class="line">                password findProperty(<span class="string">&quot;SONATYPE_PASSWORD&quot;</span>) ?: System.getenv(<span class="string">&quot;SONATYPE_PASSWORD&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">signing &#123;</span><br><span class="line">    sign publishing.publications</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
@@ -302,340 +306,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/08/notes-221008-linux-command.html" rel="prev" title="Linux 命令记录">
+                  <i class="fa fa-chevron-left"></i> Linux 命令记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://thisdk.github.io/2022/10/08/notes-221008-linux-command.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="thisdk">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Y's BLOG">
-      <meta itemprop="description" content="Hello World">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | J.Y's BLOG">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/08/notes-221008-linux-command.html" class="post-title-link" itemprop="url">Linux 命令记录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-08 14:37:00 / 修改时间：15:55:06" itemprop="dateCreated datePublished" datetime="2022-10-08T14:37:00+08:00">2022-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>230</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="全盘查找文件"><a href="#全盘查找文件" class="headerlink" title="全盘查找文件"></a>全盘查找文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name &quot;*.log&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="进入Docker容器内部执行命令"><a href="#进入Docker容器内部执行命令" class="headerlink" title="进入Docker容器内部执行命令"></a>进入Docker容器内部执行命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it tomcat bash</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Ubuntu-清除多余配置文件"><a href="#Ubuntu-清除多余配置文件" class="headerlink" title="Ubuntu 清除多余配置文件"></a>Ubuntu 清除多余配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l |grep ^rc|awk &#x27;&#123;print $2&#125;&#x27; |xargs dpkg -P</span><br></pre></td></tr></table></figure>
-
-<h3 id="Swap-交换分区创建设置"><a href="#Swap-交换分区创建设置" class="headerlink" title="Swap 交换分区创建设置"></a>Swap 交换分区创建设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个1G大小名为swap的文件</span><br><span class="line">fallocate -l 1G swap</span><br><span class="line"></span><br><span class="line"># 设置swap文件为swap分区</span><br><span class="line">mkswap -f swap</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://thisdk.github.io/2022/10/08/notes-221008-server-config.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="thisdk">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Y's BLOG">
-      <meta itemprop="description" content="Hello World">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | J.Y's BLOG">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/08/notes-221008-server-config.html" class="post-title-link" itemprop="url">服务器Docker容器配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-08 13:24:00 / 修改时间：15:55:06" itemprop="dateCreated datePublished" datetime="2022-10-08T13:24:00+08:00">2022-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="Docker-接口创建与卷创建"><a href="#Docker-接口创建与卷创建" class="headerlink" title="Docker 接口创建与卷创建"></a>Docker 接口创建与卷创建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver bridge private</span><br><span class="line">docker volume create portainer</span><br><span class="line">docker volume create redis</span><br></pre></td></tr></table></figure>
-
-<h3 id="Docker-容器创建"><a href="#Docker-容器创建" class="headerlink" title="Docker 容器创建"></a>Docker 容器创建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always --network private --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup</span><br><span class="line">docker run -d --restart=always --network private --name xray -p 443:443 -v /root/xray:/etc/xray teddysun/xray</span><br><span class="line">docker run -d --restart=always --network private --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data portainer/portainer-ce</span><br><span class="line">docker run -d --restart=always --network private --name freenom -v /root/freenom:/conf -v /root/freenom/logs:/app/logs luolongfei/freenom</span><br><span class="line">docker run -d --restart=always --network private --name nginx -v /root/nginx:/usr/share/nginx nginx</span><br><span class="line">docker run -d --restart=always --network private --name frps -p 8088:8088 -p 8088:8088/udp -v /root/frp/frps.ini:/etc/frp/frps.ini snowdreamtech/frps</span><br><span class="line">docker run -d --restart=always --network private --name docker.2048 alexwhen/docker-2048</span><br><span class="line">docker run -d --restart=always --network private --name hysteria -p 443:443/udp -v /root/hysteria:/etc/hysteria teddysun/hysteria</span><br><span class="line">docker run -d --restart=always --network private --name redis -v redis:/data redis</span><br><span class="line">docker run -d --restart=always --network private --name tomcat -v /root/tomcat/webapps:/usr/local/tomcat/webapps -v /root/tomcat/logs:/usr/local/tomcat/logs tomcat:9.0-jre11</span><br></pre></td></tr></table></figure>
-
-<h3 id="Acme-sh-证书安装"><a href="#Acme-sh-证书安装" class="headerlink" title="Acme.sh 证书安装"></a>Acme.sh 证书安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --install-cert -d www.thisdk.tk --ecc --key-file /root/xray/tls/www.thisdk.tk.key --fullchain-file /root/xray/tls/www.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br><span class="line">acme.sh --install-cert -d frp.thisdk.tk --ecc --key-file /root/xray/tls/frp.thisdk.tk.key --fullchain-file /root/xray/tls/frp.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br><span class="line">acme.sh --install-cert -d 2048.thisdk.tk --ecc --key-file /root/xray/tls/2048.thisdk.tk.key --fullchain-file /root/xray/tls/2048.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br><span class="line">acme.sh --install-cert -d docker.thisdk.tk --ecc --key-file /root/xray/tls/docker.thisdk.tk.key --fullchain-file /root/xray/tls/docker.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br><span class="line">acme.sh --install-cert -d tomcat.thisdk.tk --ecc --key-file /root/xray/tls/tomcat.thisdk.tk.key --fullchain-file /root/xray/tls/tomcat.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Acme-sh-证书申请"><a href="#Acme-sh-证书申请" class="headerlink" title="Acme.sh 证书申请"></a>Acme.sh 证书申请</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue -d www.thisdk.tk --keylength ec-256 --standalone</span><br><span class="line">acme.sh --issue -d frp.thisdk.tk --keylength ec-256 --standalone</span><br><span class="line">acme.sh --issue -d 2048.thisdk.tk --keylength ec-256 --standalone</span><br><span class="line">acme.sh --issue -d docker.thisdk.tk --keylength ec-256 --standalone</span><br><span class="line">acme.sh --issue -d tomcat.thisdk.tk --keylength ec-256 --standalone</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Acme-sh-证书续期"><a href="#Acme-sh-证书续期" class="headerlink" title="Acme.sh 证书续期"></a>Acme.sh 证书续期</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --renew -d www.thisdk.tk --ecc --force</span><br><span class="line">acme.sh --renew -d frp.thisdk.tk --ecc --force</span><br><span class="line">acme.sh --renew -d 2048.thisdk.tk --ecc --force</span><br><span class="line">acme.sh --renew -d tomcat.thisdk.tk --ecc --force</span><br><span class="line">acme.sh --renew -d docker.thisdk.tk --ecc --force</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://thisdk.github.io/2022/10/01/notes-221001-android-env-config.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="thisdk">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Y's BLOG">
-      <meta itemprop="description" content="Hello World">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | J.Y's BLOG">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/01/notes-221001-android-env-config.html" class="post-title-link" itemprop="url">Android 开发环境</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-01 12:00:00" itemprop="dateCreated datePublished" datetime="2022-10-01T12:00:00+08:00">2022-10-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-08 15:55:06" itemprop="dateModified" datetime="2022-10-08T15:55:06+08:00">2022-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%BB%98%E8%AE%A4/" itemprop="url" rel="index"><span itemprop="name">默认</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="记录安装开发环境的配置"><a href="#记录安装开发环境的配置" class="headerlink" title="记录安装开发环境的配置"></a>记录安装开发环境的配置</h3><p>其实如果一个项目被Android Studio打开.是不需要配置任何环境变量都能被正确编译的</p>
-<p>但是我们需要的不仅仅是这样</p>
-<p>下载SDK与开发工具的位置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\Android\Android Studio</span><br><span class="line">D:\Android\SDK</span><br><span class="line">D:\Android\Home</span><br><span class="line">D:\Android\Flutter</span><br><span class="line">D:\Android\Gradle</span><br></pre></td></tr></table></figure>
-
-<h3 id="Java环境配置"><a href="#Java环境配置" class="headerlink" title="Java环境配置"></a>Java环境配置</h3><p>这个时候我们可以使用Android Studio自带的JDK与JRE</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">JAVA_HOME</span>=<span class="string">D:\Android\Android Studio\jre</span></span><br><span class="line"><span class="attr">JRE_HOME</span>=<span class="string">D:\Android\Android Studio\jre\jre</span></span><br><span class="line"><span class="attr">CLASSPATH</span>=<span class="string">.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Android环境配置"><a href="#Android环境配置" class="headerlink" title="Android环境配置"></a>Android环境配置</h3><p>配置好Android SDK的位置.</p>
-<blockquote>
-<p>配置GRADLE_USER_HOME的原因是因为我想控制gradle的缓存位置</p>
-</blockquote>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Android_SDK_HOME</span>=<span class="string">D:\Android\Home</span></span><br><span class="line"><span class="attr">ANDROID_HOME</span>=<span class="string">D:\Android\SDK</span></span><br><span class="line"><span class="attr">ANDROID_SDK_ROOT</span>=<span class="string">%ANDROID_HOME%</span></span><br><span class="line"><span class="attr">GRADLE_USER_HOME</span>=<span class="string">D:\Android\Gradle</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Flutter环境变量"><a href="#Flutter环境变量" class="headerlink" title="Flutter环境变量"></a>Flutter环境变量</h3><p>若要配置Flutter</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">FLUTTER_HOME</span>=<span class="string">D:\Android\Flutter</span></span><br><span class="line"><span class="attr">FLUTTER_STORAGE_BASE_URL</span>=<span class="string">https://storage.flutter-io.cn</span></span><br><span class="line"><span class="attr">PUB_HOSTED_URL</span>=<span class="string">https://pub.flutter-io.cn</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="PATH"><a href="#PATH" class="headerlink" title="PATH"></a>PATH</h3><p>加入到PATH,方便命令行可以调用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\bin</span><br><span class="line">%JRE_HOME%\bin</span><br><span class="line">%ANDROID_HOME%\platform-tools</span><br><span class="line">%FLUTTER_HOME%\bin</span><br></pre></td></tr></table></figure>
-
-<h3 id="Gradle-下载代理"><a href="#Gradle-下载代理" class="headerlink" title="Gradle 下载代理"></a>Gradle 下载代理</h3><blockquote>
-<p>D:\Android\Gradle\gradle.properties</p>
-</blockquote>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">systemProp.http.proxyHost</span>=<span class="string">127.0.0.1</span></span><br><span class="line"><span class="attr">systemProp.http.proxyPort</span>=<span class="string">1080</span></span><br><span class="line"><span class="attr">systemProp.https.proxyHost</span>=<span class="string">127.0.0.1</span></span><br><span class="line"><span class="attr">systemProp.https.proxyPort</span>=<span class="string">1080</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>经过以上配置.任意一个Android项目下载到本地,不需要Android Studio打开.</p>
-<p>可以直接通过gradlew assembelDebug直接进行编译.在只想运行一下别人项目的时候十分便捷.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
