@@ -23,9 +23,9 @@ docker run -d --restart=always --network private --name freenom -v /root/freenom
 docker run -d --restart=always --network private --name nginx -v /root/nginx:/usr/share/nginx nginx
 docker run -d --restart=always --network private --name frps -p 8088:8088 -p 8088:8088/udp -v /root/frp/frps.ini:/etc/frp/frps.ini snowdreamtech/frps
 docker run -d --restart=always --network private --name docker.2048 alexwhen/docker-2048
-docker run -d --restart=always --network private --name xray -p 443:443 -v /root/xray:/etc/xray teddysun/xray
 docker run -d --restart=always --network private --name hysteria -p 443:443/udp -v /root/hysteria:/etc/hysteria teddysun/hysteria
 docker run -d --restart=always --network private --name redis -v redis:/data redis
+docker run -d --restart=always --network private --name tomcat -v /root/tomcat/webapps:/usr/local/tomcat/webapps -v /root/tomcat/logs:/usr/local/tomcat/logs tomcat:9.0-jre11
 ```
 
 ### Acme.sh 证书安装
