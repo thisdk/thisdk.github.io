@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Android 开发环境</title>
-    <url>/2022/10/01/android-env-config.html</url>
+    <url>/2022/10/01/notes-221001-android-env-config.html</url>
     <content><![CDATA[<h3 id="记录安装开发环境的配置"><a href="#记录安装开发环境的配置" class="headerlink" title="记录安装开发环境的配置"></a>记录安装开发环境的配置</h3><p>其实如果一个项目被Android Studio打开.是不需要配置任何环境变量都能被正确编译的</p>
 <p>但是我们需要的不仅仅是这样</p>
 <p>下载SDK与开发工具的位置</p>
