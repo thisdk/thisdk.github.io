@@ -15,7 +15,7 @@ docker volume create redis
 
 ### Docker 容器创建
 
-```
+``` shell
 docker run -d --restart=always --network private --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup
 docker run -d --restart=always --network private --name xray -p 443:443 -v /root/xray:/etc/xray teddysun/xray
 docker run -d --restart=always --network private --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data portainer/portainer-ce
@@ -30,7 +30,7 @@ docker run -d --restart=always --network private --name redis -v redis:/data red
 
 ### Acme.sh 证书安装
 
-```
+``` shell
 acme.sh --install-cert -d www.thisdk.tk --ecc --key-file /root/xray/tls/www.thisdk.tk.key --fullchain-file /root/xray/tls/www.thisdk.tk.cer --reloadcmd "docker restart xray"
 acme.sh --install-cert -d frp.thisdk.tk --ecc --key-file /root/xray/tls/frp.thisdk.tk.key --fullchain-file /root/xray/tls/frp.thisdk.tk.cer --reloadcmd "docker restart xray"
 acme.sh --install-cert -d 2048.thisdk.tk --ecc --key-file /root/xray/tls/2048.thisdk.tk.key --fullchain-file /root/xray/tls/2048.thisdk.tk.cer --reloadcmd "docker restart xray"
