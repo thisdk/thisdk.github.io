@@ -156,18 +156,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -213,6 +213,114 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://thisdk.github.io/2022/10/01/notes-221008-server-config.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="thisdk">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Y's BLOG">
+      <meta itemprop="description" content="Hello World">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | J.Y's BLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/01/notes-221008-server-config.html" class="post-title-link" itemprop="url">服务器Docker容器配置笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-01 13:24:00" itemprop="dateCreated datePublished" datetime="2022-10-01T13:24:00+08:00">2022-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-08 13:48:36" itemprop="dateModified" datetime="2022-10-08T13:48:36+08:00">2022-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Docker-接口创建与卷创建"><a href="#Docker-接口创建与卷创建" class="headerlink" title="Docker 接口创建与卷创建"></a>Docker 接口创建与卷创建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver bridge private</span><br><span class="line">docker volume create portainer</span><br><span class="line">docker volume create redis</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker-容器创建"><a href="#Docker-容器创建" class="headerlink" title="Docker 容器创建"></a>Docker 容器创建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always --network private --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup</span><br><span class="line">docker run -d --restart=always --network private --name xray -p 443:443 -v /root/xray:/etc/xray teddysun/xray</span><br><span class="line">docker run -d --restart=always --network private --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data portainer/portainer-ce</span><br><span class="line">docker run -d --restart=always --network private --name freenom -v /root/freenom:/conf -v /root/freenom/logs:/app/logs luolongfei/freenom</span><br><span class="line">docker run -d --restart=always --network private --name nginx -v /root/nginx:/usr/share/nginx nginx</span><br><span class="line">docker run -d --restart=always --network private --name frps -p 8088:8088 -p 8088:8088/udp -v /root/frp/frps.ini:/etc/frp/frps.ini snowdreamtech/frps</span><br><span class="line">docker run -d --restart=always --network private --name docker.2048 alexwhen/docker-2048</span><br><span class="line">docker run -d --restart=always --network private --name xray -p 443:443 -v /root/xray:/etc/xray teddysun/xray</span><br><span class="line">docker run -d --restart=always --network private --name hysteria -p 443:443/udp -v /root/hysteria:/etc/hysteria teddysun/hysteria</span><br><span class="line">docker run -d --restart=always --network private --name redis -v redis:/data redis</span><br></pre></td></tr></table></figure>
+
+<h3 id="Acme-sh-证书安装"><a href="#Acme-sh-证书安装" class="headerlink" title="Acme.sh 证书安装"></a>Acme.sh 证书安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --install-cert -d www.thisdk.tk --ecc --key-file /root/xray/tls/www.thisdk.tk.key --fullchain-file /root/xray/tls/www.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br><span class="line">acme.sh --install-cert -d frp.thisdk.tk --ecc --key-file /root/xray/tls/frp.thisdk.tk.key --fullchain-file /root/xray/tls/frp.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br><span class="line">acme.sh --install-cert -d 2048.thisdk.tk --ecc --key-file /root/xray/tls/2048.thisdk.tk.key --fullchain-file /root/xray/tls/2048.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br><span class="line">acme.sh --install-cert -d docker.thisdk.tk --ecc --key-file /root/xray/tls/docker.thisdk.tk.key --fullchain-file /root/xray/tls/docker.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br><span class="line">acme.sh --install-cert -d tomcat.thisdk.tk --ecc --key-file /root/xray/tls/tomcat.thisdk.tk.key --fullchain-file /root/xray/tls/tomcat.thisdk.tk.cer --reloadcmd &quot;docker restart xray&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Acme-sh-证书申请"><a href="#Acme-sh-证书申请" class="headerlink" title="Acme.sh 证书申请"></a>Acme.sh 证书申请</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue -d www.thisdk.tk --keylength ec-256 --standalone</span><br><span class="line">acme.sh --issue -d frp.thisdk.tk --keylength ec-256 --standalone</span><br><span class="line">acme.sh --issue -d 2048.thisdk.tk --keylength ec-256 --standalone</span><br><span class="line">acme.sh --issue -d docker.thisdk.tk --keylength ec-256 --standalone</span><br><span class="line">acme.sh --issue -d tomcat.thisdk.tk --keylength ec-256 --standalone</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Acme-sh-证书续期"><a href="#Acme-sh-证书续期" class="headerlink" title="Acme.sh 证书续期"></a>Acme.sh 证书续期</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --renew -d www.thisdk.tk --ecc --force</span><br><span class="line">acme.sh --renew -d frp.thisdk.tk --ecc --force</span><br><span class="line">acme.sh --renew -d 2048.thisdk.tk --ecc --force</span><br><span class="line">acme.sh --renew -d tomcat.thisdk.tk --ecc --force</span><br><span class="line">acme.sh --renew -d docker.thisdk.tk --ecc --force</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://thisdk.github.io/2022/10/01/android-env-config.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -249,7 +357,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-08 13:47:02" itemprop="dateModified" datetime="2022-10-08T13:47:02+08:00">2022-10-08</time>
+      <time title="修改时间：2022-10-08 13:48:36" itemprop="dateModified" datetime="2022-10-08T13:48:36+08:00">2022-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -353,13 +461,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1k</span>
+    <span title="站点总字数">4k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">3 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
