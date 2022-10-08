@@ -36,12 +36,24 @@
         <category>默认</category>
       </categories>
       <tags>
-        <tag>默认</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
-    <title>服务器Docker容器配置笔记</title>
-    <url>/2022/10/01/notes-221008-server-config.html</url>
+    <title>Linux 命令记录</title>
+    <url>/2022/10/08/notes-221008-linux-command.html</url>
+    <content><![CDATA[<h3 id="全盘查找文件"><a href="#全盘查找文件" class="headerlink" title="全盘查找文件"></a>全盘查找文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find / -name &quot;*.log&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器Docker容器配置</title>
+    <url>/2022/10/08/notes-221008-server-config.html</url>
     <content><![CDATA[<h3 id="Docker-接口创建与卷创建"><a href="#Docker-接口创建与卷创建" class="headerlink" title="Docker 接口创建与卷创建"></a>Docker 接口创建与卷创建</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker network create --driver bridge private</span><br><span class="line">docker volume create portainer</span><br><span class="line">docker volume create redis</span><br></pre></td></tr></table></figure>
 
 <h3 id="Docker-容器创建"><a href="#Docker-容器创建" class="headerlink" title="Docker 容器创建"></a>Docker 容器创建</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d --restart=always --network private --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup</span><br><span class="line">docker run -d --restart=always --network private --name xray -p 443:443 -v /root/xray:/etc/xray teddysun/xray</span><br><span class="line">docker run -d --restart=always --network private --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data portainer/portainer-ce</span><br><span class="line">docker run -d --restart=always --network private --name freenom -v /root/freenom:/conf -v /root/freenom/logs:/app/logs luolongfei/freenom</span><br><span class="line">docker run -d --restart=always --network private --name nginx -v /root/nginx:/usr/share/nginx nginx</span><br><span class="line">docker run -d --restart=always --network private --name frps -p 8088:8088 -p 8088:8088/udp -v /root/frp/frps.ini:/etc/frp/frps.ini snowdreamtech/frps</span><br><span class="line">docker run -d --restart=always --network private --name docker.2048 alexwhen/docker-2048</span><br><span class="line">docker run -d --restart=always --network private --name hysteria -p 443:443/udp -v /root/hysteria:/etc/hysteria teddysun/hysteria</span><br><span class="line">docker run -d --restart=always --network private --name redis -v redis:/data redis</span><br><span class="line">docker run -d --restart=always --network private --name tomcat -v /root/tomcat/webapps:/usr/local/tomcat/webapps -v /root/tomcat/logs:/usr/local/tomcat/logs tomcat:9.0-jre11</span><br></pre></td></tr></table></figure>
@@ -56,7 +68,7 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
