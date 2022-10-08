@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Android 开发环境</title>
+    <url>/2022/10/01/android-env-config.html</url>
+    <content><![CDATA[<h3 id="记录安装开发环境的配置"><a href="#记录安装开发环境的配置" class="headerlink" title="记录安装开发环境的配置"></a>记录安装开发环境的配置</h3><p>其实如果一个项目被Android Studio打开.是不需要配置任何环境变量都能被正确编译的</p>
+<p>但是我们需要的不仅仅是这样</p>
+<p>下载SDK与开发工具的位置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D:\Android\Android Studio</span><br><span class="line">D:\Android\SDK</span><br><span class="line">D:\Android\Home</span><br><span class="line">D:\Android\Flutter</span><br><span class="line">D:\Android\Gradle</span><br></pre></td></tr></table></figure>
+
+<h3 id="Java环境配置"><a href="#Java环境配置" class="headerlink" title="Java环境配置"></a>Java环境配置</h3><p>这个时候我们可以使用Android Studio自带的JDK与JRE</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">JAVA_HOME</span>=<span class="string">D:\Android\Android Studio\jre</span></span><br><span class="line"><span class="attr">JRE_HOME</span>=<span class="string">D:\Android\Android Studio\jre\jre</span></span><br><span class="line"><span class="attr">CLASSPATH</span>=<span class="string">.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Android环境配置"><a href="#Android环境配置" class="headerlink" title="Android环境配置"></a>Android环境配置</h3><p>配置好Android SDK的位置.</p>
+<blockquote>
+<p>配置GRADLE_USER_HOME的原因是因为我想控制gradle的缓存位置</p>
+</blockquote>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">Android_SDK_HOME</span>=<span class="string">D:\Android\Home</span></span><br><span class="line"><span class="attr">ANDROID_HOME</span>=<span class="string">D:\Android\SDK</span></span><br><span class="line"><span class="attr">ANDROID_SDK_ROOT</span>=<span class="string">%ANDROID_HOME%</span></span><br><span class="line"><span class="attr">GRADLE_USER_HOME</span>=<span class="string">D:\Android\Gradle</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Flutter环境变量"><a href="#Flutter环境变量" class="headerlink" title="Flutter环境变量"></a>Flutter环境变量</h3><p>若顺便进行Flutter</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">FLUTTER_HOME</span>=<span class="string">D:\Android\Flutter</span></span><br><span class="line"><span class="attr">FLUTTER_STORAGE_BASE_URL</span>=<span class="string">https://storage.flutter-io.cn</span></span><br><span class="line"><span class="attr">PUB_HOSTED_URL</span>=<span class="string">https://pub.flutter-io.cn</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="PATH"><a href="#PATH" class="headerlink" title="PATH"></a>PATH</h3><p>加入到PATH,方便命令行可以调用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%JAVA_HOME%\bin</span><br><span class="line">%JRE_HOME%\bin</span><br><span class="line">%ANDROID_HOME%\platform-tools</span><br><span class="line">%FLUTTER_HOME%\bin</span><br></pre></td></tr></table></figure>
+
+<h3 id="Gradle-下载代理"><a href="#Gradle-下载代理" class="headerlink" title="Gradle 下载代理"></a>Gradle 下载代理</h3><blockquote>
+<p>D:\Android\Gradle\gradle.properties</p>
+</blockquote>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">systemProp.http.proxyHost</span>=<span class="string">127.0.0.1</span></span><br><span class="line"><span class="attr">systemProp.http.proxyPort</span>=<span class="string">1080</span></span><br><span class="line"><span class="attr">systemProp.https.proxyHost</span>=<span class="string">127.0.0.1</span></span><br><span class="line"><span class="attr">systemProp.https.proxyPort</span>=<span class="string">1080</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>经过以上配置.任意一个Android项目下载到本地,不需要Android Studio打开.</p>
+<p>可以直接通过gradlew assembelDebug直接进行编译.在只想运行一下别人项目的时候十分便捷.</p>
+]]></content>
+      <categories>
+        <category>默认</category>
+      </categories>
+      <tags>
+        <tag>默认</tag>
+      </tags>
+  </entry>
+</search>
