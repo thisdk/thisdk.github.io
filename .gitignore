@@ -1,0 +1,9 @@
+.idea/
+.deploy*/
+node_modules/
+public/
+db.json
+Thumbs.db
+_multiconfig.yml
+*.log
+package-lock.json

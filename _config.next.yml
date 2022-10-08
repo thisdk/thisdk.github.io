@@ -1,0 +1,34 @@
+scheme: Pisces
+
+cache:
+  enable: true
+
+pjax: true
+minify: true
+darkmode: true
+site_state: true
+
+menu:
+  home: / || fa fa-home
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+
+avatar:
+  url: /images/avatar.jpg
+  rounded: true
+  rotated: true
+
+social:
+  GitHub: https://github.com/thisdk || fab fa-github
+  E-Mail: mailto:thisdk@gmail.com || fa fa-envelope
+
+local_search:
+  enable: true
+  trigger: auto
+  top_n_per_article: 1
+  unescape: false
+  preload: false
+
+
+
