@@ -26,6 +26,7 @@ docker run -d --restart=always --network private --name docker.2048 alexwhen/doc
 docker run -d --restart=always --network private --name hysteria -p 443:443/udp -v /root/hysteria:/etc/hysteria teddysun/hysteria
 docker run -d --restart=always --network private --name redis -v redis:/data redis
 docker run -d --restart=always --network private --name tomcat -v /root/tomcat/webapps:/usr/local/tomcat/webapps -v /root/tomcat/logs:/usr/local/tomcat/logs tomcat:9.0-jre11
+docker run -d --restart=always --network private --name vlmcsd -p 1688:1688 mikolatero/vlmcsd
 ```
 
 ### Acme.sh 证书安装

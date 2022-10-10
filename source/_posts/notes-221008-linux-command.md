@@ -34,3 +34,9 @@ fallocate -l 1G swap
 # 设置swap文件为swap分区
 mkswap -f swap
 ```
+
+### Windows 创建目录软链接
+
+```
+mklink /d D:\target D:\sources
+```
