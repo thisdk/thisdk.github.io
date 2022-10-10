@@ -29,16 +29,6 @@ docker run -d --restart=always --network private --name tomcat -v /root/tomcat/w
 docker run -d --restart=always --network private --name vlmcsd -p 1688:1688 mikolatero/vlmcsd
 ```
 
-### Acme.sh 证书安装
-
-``` shell
-acme.sh --install-cert -d www.thisdk.tk --ecc --key-file /root/xray/tls/www.thisdk.tk.key --fullchain-file /root/xray/tls/www.thisdk.tk.cer --reloadcmd "docker restart xray"
-acme.sh --install-cert -d frp.thisdk.tk --ecc --key-file /root/xray/tls/frp.thisdk.tk.key --fullchain-file /root/xray/tls/frp.thisdk.tk.cer --reloadcmd "docker restart xray"
-acme.sh --install-cert -d 2048.thisdk.tk --ecc --key-file /root/xray/tls/2048.thisdk.tk.key --fullchain-file /root/xray/tls/2048.thisdk.tk.cer --reloadcmd "docker restart xray"
-acme.sh --install-cert -d docker.thisdk.tk --ecc --key-file /root/xray/tls/docker.thisdk.tk.key --fullchain-file /root/xray/tls/docker.thisdk.tk.cer --reloadcmd "docker restart xray"
-acme.sh --install-cert -d tomcat.thisdk.tk --ecc --key-file /root/xray/tls/tomcat.thisdk.tk.key --fullchain-file /root/xray/tls/tomcat.thisdk.tk.cer --reloadcmd "docker restart xray"
-```
-
 ### Acme.sh 证书申请
 
 ``` shell
@@ -47,6 +37,16 @@ acme.sh --issue -d frp.thisdk.tk --keylength ec-256 --standalone
 acme.sh --issue -d 2048.thisdk.tk --keylength ec-256 --standalone
 acme.sh --issue -d docker.thisdk.tk --keylength ec-256 --standalone
 acme.sh --issue -d tomcat.thisdk.tk --keylength ec-256 --standalone
+```
+
+### Acme.sh 证书安装
+
+``` shell
+acme.sh --install-cert -d www.thisdk.tk --ecc --key-file /root/xray/tls/www.thisdk.tk.key --fullchain-file /root/xray/tls/www.thisdk.tk.cer --reloadcmd "docker restart xray"
+acme.sh --install-cert -d frp.thisdk.tk --ecc --key-file /root/xray/tls/frp.thisdk.tk.key --fullchain-file /root/xray/tls/frp.thisdk.tk.cer --reloadcmd "docker restart xray"
+acme.sh --install-cert -d 2048.thisdk.tk --ecc --key-file /root/xray/tls/2048.thisdk.tk.key --fullchain-file /root/xray/tls/2048.thisdk.tk.cer --reloadcmd "docker restart xray"
+acme.sh --install-cert -d docker.thisdk.tk --ecc --key-file /root/xray/tls/docker.thisdk.tk.key --fullchain-file /root/xray/tls/docker.thisdk.tk.cer --reloadcmd "docker restart xray"
+acme.sh --install-cert -d tomcat.thisdk.tk --ecc --key-file /root/xray/tls/tomcat.thisdk.tk.key --fullchain-file /root/xray/tls/tomcat.thisdk.tk.cer --reloadcmd "docker restart xray"
 ```
 
 
