@@ -27,6 +27,7 @@ docker run -d --restart=always --network private --name hysteria -p 443:443/udp 
 docker run -d --restart=always --network private --name redis -v redis:/data redis
 docker run -d --restart=always --network private --name tomcat -v /root/tomcat/webapps:/usr/local/tomcat/webapps -v /root/tomcat/logs:/usr/local/tomcat/logs tomcat:9.0-jre11
 docker run -d --restart=always --network private --name vlmcsd -p 1688:1688 mikolatero/vlmcsd
+docker run -d --restart=always --network private --name kms -v /root/kms:/usr/share/nginx nginx:latest
 ```
 
 ### Acme.sh 证书申请
@@ -37,6 +38,7 @@ acme.sh --issue -d frp.thisdk.tk --keylength ec-256 --standalone
 acme.sh --issue -d 2048.thisdk.tk --keylength ec-256 --standalone
 acme.sh --issue -d docker.thisdk.tk --keylength ec-256 --standalone
 acme.sh --issue -d tomcat.thisdk.tk --keylength ec-256 --standalone
+acme.sh --issue -d kms.thisdk.tk --keylength ec-256 --standalone
 ```
 
 ### Acme.sh 证书安装
@@ -47,6 +49,7 @@ acme.sh --install-cert -d frp.thisdk.tk --ecc --key-file /root/xray/tls/frp.this
 acme.sh --install-cert -d 2048.thisdk.tk --ecc --key-file /root/xray/tls/2048.thisdk.tk.key --fullchain-file /root/xray/tls/2048.thisdk.tk.cer --reloadcmd "docker restart xray"
 acme.sh --install-cert -d docker.thisdk.tk --ecc --key-file /root/xray/tls/docker.thisdk.tk.key --fullchain-file /root/xray/tls/docker.thisdk.tk.cer --reloadcmd "docker restart xray"
 acme.sh --install-cert -d tomcat.thisdk.tk --ecc --key-file /root/xray/tls/tomcat.thisdk.tk.key --fullchain-file /root/xray/tls/tomcat.thisdk.tk.cer --reloadcmd "docker restart xray"
+acme.sh --install-cert -d kms.thisdk.tk --ecc --key-file /root/xray/tls/kms.thisdk.tk.key --fullchain-file /root/xray/tls/kms.thisdk.tk.cer --reloadcmd "docker restart xray"
 ```
 
 
@@ -58,4 +61,5 @@ acme.sh --renew -d frp.thisdk.tk --ecc --force
 acme.sh --renew -d 2048.thisdk.tk --ecc --force
 acme.sh --renew -d tomcat.thisdk.tk --ecc --force
 acme.sh --renew -d docker.thisdk.tk --ecc --force
+acme.sh --renew -d kms.thisdk.tk --ecc --force
 ```
