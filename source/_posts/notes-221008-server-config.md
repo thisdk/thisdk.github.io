@@ -254,7 +254,7 @@ acme.sh --remove -d docker.thisdk.tk --ecc
                 "xtlsSettings": {
                     "serverName": "www.thisdk.tk",
                     "rejectUnknownSni": true,
-					"fingerprint": "chrome"
+                    "fingerprint": "chrome"
                 }
             }
         }
@@ -300,7 +300,7 @@ acme.sh --remove -d docker.thisdk.tk --ecc
                 "security": "tls",
                 "tlsSettings": {
                     "serverName": "www.thisdk.tk",
-					"fingerprint": "chrome"
+                    "fingerprint": "chrome"
                 },
                 "wsSettings": {
                     "path": "/wechat/honor_of_kings.ws"
