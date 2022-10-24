@@ -82,7 +82,7 @@ acme.sh --remove -d docker.thisdk.tk --ecc
             "id": "",
             "flow": "xtls-rprx-direct",
             "level": 0,
-            "email": ""
+            "email": "thisdk@gmail.com"
           }
         ],
         "decryption": "none",
@@ -162,7 +162,7 @@ acme.sh --remove -d docker.thisdk.tk --ecc
           {
             "id": "",
             "level": 0,
-            "email": ""
+            "email": "thisdk@gmail.com"
           }
         ],
         "decryption": "none"
@@ -172,7 +172,7 @@ acme.sh --remove -d docker.thisdk.tk --ecc
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": ""
+          "path": "/wechat/honor_of_kings.ws"
         }
       }
     },
@@ -185,7 +185,7 @@ acme.sh --remove -d docker.thisdk.tk --ecc
           {
             "password": "",
             "level": 0,
-            "email": ""
+            "email": "thisdk@gmail.com"
           }
         ],
         "fallbacks": [
@@ -242,7 +242,7 @@ acme.sh --remove -d docker.thisdk.tk --ecc
                                 "flow": "xtls-rprx-direct",
                                 "encryption": "none",
                                 "level": 0,
-                                "email": ""
+                                "email": "thisdk@gmail.com"
                             }
                         ]
                     }
@@ -252,7 +252,7 @@ acme.sh --remove -d docker.thisdk.tk --ecc
                 "network": "tcp",
                 "security": "xtls",
                 "xtlsSettings": {
-                    "serverName": "",
+                    "serverName": "www.thisdk.tk",
                     "rejectUnknownSni": true,
 					"fingerprint": "chrome"
                 }
@@ -299,11 +299,11 @@ acme.sh --remove -d docker.thisdk.tk --ecc
                 "network": "ws",
                 "security": "tls",
                 "tlsSettings": {
-                    "serverName": "",
+                    "serverName": "www.thisdk.tk",
 					"fingerprint": "chrome"
                 },
                 "wsSettings": {
-                    "path": ""
+                    "path": "/wechat/honor_of_kings.ws"
                 }
             }
         }
