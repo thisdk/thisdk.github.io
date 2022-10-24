@@ -65,3 +65,248 @@ acme.sh --renew -d kms.thisdk.tk --ecc --force
 ```
 acme.sh --remove -d docker.thisdk.tk --ecc
 ```
+
+### Xray Server自用配置文件
+``` json
+{
+  "log": {
+    "loglevel": "wraning"
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "",
+            "flow": "xtls-rprx-direct",
+            "level": 0,
+            "email": ""
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "name": "www.thisdk.tk",
+            "path": "/wechat/honor_of_kings.ws",
+            "dest": 1081,
+            "xver": 1
+          },
+          {
+            "name": "www.thisdk.tk",
+            "dest": 1082,
+            "xver": 1
+          },
+          {
+            "name": "tomcat.thisdk.tk",
+            "dest": "tomcat:8080",
+            "xver": 0
+          },
+          {
+            "name": "kms.thisdk.tk",
+            "dest": "nginx:80",
+            "xver": 0
+          },
+          {
+            "name": "frp.thisdk.tk",
+            "dest": "frps:7500",
+            "xver": 0
+          },
+          {
+            "name": "2048.thisdk.tk",
+            "dest": "docker.2048:80",
+            "xver": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "xtls",
+        "xtlsSettings": {
+          "alpn": [
+            "http/1.1"
+          ],
+          "certificates": [
+            {
+              "certificateFile": "/etc/xray/tls/www.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/www.thisdk.tk.key"
+            },
+            {
+              "certificateFile": "/etc/xray/tls/frp.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/frp.thisdk.tk.key"
+            },
+            {
+              "certificateFile": "/etc/xray/tls/2048.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/2048.thisdk.tk.key"
+            },
+            {
+              "certificateFile": "/etc/xray/tls/tomcat.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/tomcat.thisdk.tk.key"
+            },
+            {
+              "certificateFile": "/etc/xray/tls/kms.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/kms.thisdk.tk.key"
+            }
+          ],
+          "rejectUnknownSni": true
+        }
+      }
+    },
+    {
+      "port": 1081,
+      "listen": "127.0.0.1",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "",
+            "level": 0,
+            "email": ""
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "acceptProxyProtocol": true,
+          "path": ""
+        }
+      }
+    },
+    {
+      "port": 1082,
+      "listen": "127.0.0.1",
+      "protocol": "trojan",
+      "settings": {
+        "clients": [
+          {
+            "password": "",
+            "level": 0,
+            "email": ""
+          }
+        ],
+        "fallbacks": [
+          {
+            "dest": "portainer:9000"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": true
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ]
+}
+```
+
+### Xray Client自用配置文件
+
+``` json
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 7890,
+            "listen": "127.0.0.1",
+            "protocol": "http",
+            "settings": {
+                "udp": true
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "",
+                                "flow": "xtls-rprx-direct",
+                                "encryption": "none",
+                                "level": 0,
+                                "email": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "xtls",
+                "xtlsSettings": {
+                    "serverName": "",
+                    "rejectUnknownSni": true,
+					"fingerprint": "chrome"
+                }
+            }
+        }
+    ]
+}
+```
+
+``` json
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 7890,
+            "listen": "127.0.0.1",
+            "protocol": "http",
+            "settings": {
+                "udp": true
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "",
+                                "encryption": "none",
+                                "level": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "",
+					"fingerprint": "chrome"
+                },
+                "wsSettings": {
+                    "path": ""
+                }
+            }
+        }
+    ]
+}
+```
