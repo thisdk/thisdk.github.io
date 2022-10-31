@@ -61,3 +61,214 @@ acme.sh --renew -d tomcat.thisdk.tk --ecc --force
 acme.sh --remove -d docker.thisdk.tk --ecc
 acme.sh --remove -d kms.thisdk.tk --ecc
 ```
+
+### XRAY 自用配置
+
+``` json
+{
+  "log": {
+    "loglevel": "wraning"
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "",
+            "flow": "xtls-rprx-vision",
+            "level": 0,
+            "email": "thisdk@gmail.com"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "name": "www.thisdk.tk",
+            "path": "/wechat/honor_of_kings.ws",
+            "dest": 1081,
+            "xver": 1
+          },
+          {
+            "name": "www.thisdk.tk",
+            "dest": "portainer:9000",
+            "xver": 0
+          },
+          {
+            "name": "tomcat.thisdk.tk",
+            "dest": "tomcat:8080",
+            "xver": 0
+          },
+          {
+            "name": "frp.thisdk.tk",
+            "dest": "frps:7500",
+            "xver": 0
+          },
+          {
+            "name": "2048.thisdk.tk",
+            "dest": "docker.2048:80",
+            "xver": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "alpn": [
+            "http/1.1"
+          ],
+          "certificates": [
+            {
+              "certificateFile": "/etc/xray/tls/www.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/www.thisdk.tk.key"
+            },
+            {
+              "certificateFile": "/etc/xray/tls/tomcat.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/tomcat.thisdk.tk.key"
+            },
+            {
+              "certificateFile": "/etc/xray/tls/frp.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/frp.thisdk.tk.key"
+            },
+            {
+              "certificateFile": "/etc/xray/tls/2048.thisdk.tk.cer",
+              "keyFile": "/etc/xray/tls/2048.thisdk.tk.key"
+            }
+          ],
+          "rejectUnknownSni": true
+        }
+      }
+    },
+    {
+      "port": 1081,
+      "listen": "127.0.0.1",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "",
+            "level": 0,
+            "email": "thisdk@gmail.com"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "acceptProxyProtocol": true,
+          "path": "/wechat/honor_of_kings.ws"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ]
+}
+```
+
+### XRAY XTLS
+``` json
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 7890,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "",
+            "port": 443,
+            "users": [
+              {
+                "id": "",
+                "flow": "xtls-rprx-vision",
+                "encryption": "none",
+                "level": 0,
+                "email": "thisdk@gmail.com"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "www.thisdk.tk",
+          "fingerprint": "chrome",
+          "rejectUnknownSni": true
+        }
+      }
+    }
+  ]
+}
+```
+
+### XRAY TLS WS
+``` json
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 7890,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.thisdk.tk",
+            "port": 443,
+            "users": [
+              {
+                "id": "",
+                "encryption": "none",
+                "level": 0
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "www.thisdk.tk",
+          "fingerprint": "chrome"
+        },
+        "wsSettings": {
+          "path": "/wechat/honor_of_kings.ws"
+        }
+      }
+    }
+  ]
+}
+```
