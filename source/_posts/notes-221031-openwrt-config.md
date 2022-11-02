@@ -30,8 +30,8 @@ config_get_bool no_dynctrl "$s" 'no_dynctrl' 0
 ### 命令行设置拨号
 ```
 uci set network.wan.proto=pppoe
-uci set network.wan.username='13148850427@139.gd'
-uci set network.wan.password='850427'
+uci set network.wan.username=''
+uci set network.wan.password=''
 uci commit network
 ifup wan
 ```
