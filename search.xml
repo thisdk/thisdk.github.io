@@ -123,7 +123,7 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local no_dynctrl</span><br><span class="line">config_get_bool no_dynctrl &quot;$s&quot; &#x27;no_dynctrl&#x27; 0</span><br><span class="line">[ &quot;$no_dynctrl&quot; -ne 0 ] &amp;&amp; input_arg=&quot;$&#123;input_arg&#125; --no_dynctrl&quot;</span><br></pre></td></tr></table></figure>
 
-<h3 id="命令行设置拨号"><a href="#命令行设置拨号" class="headerlink" title="命令行设置拨号"></a>命令行设置拨号</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uci set network.wan.proto=pppoe</span><br><span class="line">uci set network.wan.username=&#x27;13148850427@139.gd&#x27;</span><br><span class="line">uci set network.wan.password=&#x27;850427&#x27;</span><br><span class="line">uci commit network</span><br><span class="line">ifup wan</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="命令行设置拨号"><a href="#命令行设置拨号" class="headerlink" title="命令行设置拨号"></a>命令行设置拨号</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uci set network.wan.proto=pppoe</span><br><span class="line">uci set network.wan.username=&#x27;&#x27;</span><br><span class="line">uci set network.wan.password=&#x27;&#x27;</span><br><span class="line">uci commit network</span><br><span class="line">ifup wan</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>笔记</category>
       </categories>
